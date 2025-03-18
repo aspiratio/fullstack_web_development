@@ -25,7 +25,19 @@
 					"pylint_django",
 					"--django-settings-module",
 					"config.settings.development"
-				]
+				],
+				"extensions": [
+					"ms-python.python",
+					"ms-python.black-formatter",
+					"eamodio.gitlens"
+				],
+				"settings": {
+					"editor.defaultFormatter": "ms-python.black-formatter",
+					"editor.formatOnSave": true,
+					"python.formatting.provider": "black",
+					"editor.tabSize": 4,
+					"editor.insertSpaces": true
+				}
 			}
 		}
 	},
