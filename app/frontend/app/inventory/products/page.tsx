@@ -30,6 +30,7 @@ export default function Page() {
             <th>単価</th>
             <th>説明</th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
