@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { use, useState, useEffect } from "react"
 import productsData from "../sample/dummy_products.json"
 import inventoriesData from "../sample/dummy_inventories.json"
 
@@ -21,9 +21,8 @@ type InventoryData = {
   inventory: number
 }
 
-export default function Page() {
-  // 商品IDにあたる検索条件
-  const params = { id: 1 }
+export default function Page({ params }: { params: Promise<{ id: number }> }) {
+  const { id } = use(params)
 
   // 読み込みデータを保持
   const [product, setProduct] = useState<ProductData>({
@@ -37,11 +36,11 @@ export default function Page() {
 
   useEffect(() => {
     const selectedProduct: ProductData = productsData.find(
-      (v) => v.id == params.id
+      (v) => v.id == id
     ) ?? { id: 0, name: "", price: 0, description: "" }
     setProduct(selectedProduct)
     setData(inventoriesData)
-  }, [])
+  }, [params])
 
   return (
     <>
