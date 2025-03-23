@@ -174,7 +174,7 @@ export default function Page() {
                   </td>
                   <td>
                     <input
-                      type="text"
+                      type="number"
                       id="price"
                       {...register("price", {
                         required: true,
