@@ -81,10 +81,10 @@ export default function Page() {
       description: selectedProduct.description,
     })
   }
-  const handleEditCancel: any = (id: number) => {
+  const handleEditCancel: any = () => {
     setId(0)
   }
-  const handleEdit: any = (id: number) => {
+  const handleEdit: any = (data: ProductData) => {
     setId(0)
   }
   const handleDelete: any = (id: number) => {
@@ -195,20 +195,17 @@ export default function Page() {
                   </td>
                   <td></td>
                   <td>
-                    <button
-                      type="button"
-                      onClick={() => handleEditCancel(data.id)}
-                    >
+                    <button type="button" onClick={() => handleEditCancel()}>
                       キャンセル
                     </button>
                   </td>
                   <td>
-                    <button type="submit" onClick={() => handleEdit(data.id)}>
+                    <button type="submit" onClick={() => setAction("update")}>
                       更新する
                     </button>
                   </td>
                   <td>
-                    <button type="submit" onClick={() => handleDelete(data.id)}>
+                    <button type="submit" onClick={() => setAction("delete")}>
                       削除する
                     </button>
                   </td>
