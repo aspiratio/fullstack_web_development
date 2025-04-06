@@ -25,3 +25,16 @@ class Purchase(models.Model):
     class Meta:
         db_table = "purchase"
         verbose_name = "仕入"
+
+
+class Sales(models.Model):
+    """
+    売上
+    """
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.IntegerField(verbose_name="数量")
+    sales_date = models.DateTimeField(verbose_name="売上日時")
+
+    class Meta:
+        db_table = "sales"
+        verbose_name = "売上"
